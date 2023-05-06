@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Example Cinematic</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.60.0/phaser.js" integrity="sha512-H05oT7BAjM9Ai1IaFX9zr61NtE2e1P0MkTz3AZXBnseaJSAOt2FGMFJ+vVGutaJxEGA1jxUiYsTBYQNE08/Erw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        class Intro extends Phaser.Scene {
+            constructor() {
+                super('intro');
+            }
+            create() {
+                let box = this.add.text(10, 10,
+`Click to begin and click to continue through the slides.
+The first slide will naturally fade after 5 seconds
+so don't click on the first slide if you
+want to see the fade transition.`
+                );
+                this.input.on('pointerdown', () => this.scene.start('body'));
+            }
+        }
+
+        class Body extends Phaser.Scene {
+            constructor() {
+                super('body');
+            }
+            preload(){
+                this.load.path = './assets/';
+                this.load.image('Bozo', 'Bozo Studio.png');
+                this.load.audio('Boom', 'boom.mp3');
+            }
+            create() {
+                let sound = this.sound.add('Boom');
+                sound.play();
+                this.imageObject = this.add.image(
+                    320,
+                    240,
+                    'Bozo',
+                )
+                this.time.delayedCall(2000, () => {
+                    this.cameras.main.fadeOut(2000, 0,0,0);
+                });
+
+                this.time.delayedCall(5000, () => {
+                    this.scene.start('body2');
+                })
+                this.input.on('pointerdown', () => sound.pause());
+                this.input.on('pointerdown', () => this.scene.start('body2'));
+            }
+        }
+
+        class Body2 extends Phaser.Scene {
+            constructor() {
+                super('body2');
+            }
+            create() {
+                this.cameras.main.fadeIn(1000, 0,0,0);
+                this.input.on('pointerdown', () => this.scene.start('body3'));
+                let ball = this.add.circle(150, 0, 50, 0xffffff);
+                this.tweens.add({
+                    targets: ball,
+                    x: 150,
+                    y: 900,
+                    duration: 1000,
+                    ease: 'Linear',
+                    repeat: -1,
+                });
+                let ball2 = this.add.circle(275, 0, 50, 0xffffff);
+                this.tweens.add({
+                    targets: ball2,
+                    x: 275,
+                    y: 900,
+                    duration: 1100,
+                    ease: 'Linear',
+                    repeat: -1,
+                });
+                let ball3 = this.add.circle(400, 0, 50, 0xffffff);
+                this.tweens.add({
+                    targets: ball3,
+                    x: 400,
+                    y: 900,
+                    duration: 1200,
+                    ease: 'Linear',
+                    repeat: -1,
+                });
+                let ball4 = this.add.circle(525, 0, 50, 0xffffff);
+                this.tweens.add({
+                    targets: ball4,
+                    x: 525,
+                    y: 900,
+                    duration: 1300,
+                    ease: 'Linear',
+                    repeat: -1,
+                });
+            }
+        }
+
+        class Body3 extends Phaser.Scene {
+            constructor() {
+                super('body3');
+            }
+            preload() {
+                this.load.path = './assets/';
+                this.load.image('Background', 'BallWorld.png');
+                this.load.image('Title', 'TitleText.png');
+                this.load.audio('BGM', 'music.mp3');
+            }
+            create() {
+                let sound = this.sound.add('BGM');
+                sound.play();
+                this.imageObject = this.add.image(
+                    320,
+                    240,
+                    'Background',
+                )
+                this.titleObject = this.add.image(
+                    175,
+                    50,
+                    'Title',
+                )
+                let box = this.add.text(25, 160,
+`PLAY
+
+OPTIONS
+
+CREDITS
+
+QUIT`
+                );
+                this.input.on('pointerdown', () => sound.pause());
+                this.input.on('pointerdown', () => this.scene.start('intro'));
+            }
+        }
+
+
+        new Phaser.Game({
+            width: 640,
+            height: 480,
+            scene: [Intro, Body, Body2, Body3],
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
