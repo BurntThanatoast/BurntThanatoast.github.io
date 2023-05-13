@@ -302,7 +302,7 @@ getting terrible knick knacks for expensive prices.  At the end of the
 day you get an email saying you got a 100% on your homework.
 Life is good.`
                             ).setFontSize(30);
-        this.add.text(10, 170, "Click anywhere to restart.").setFontSize(40);
+        this.add.text(10, 240, "Click anywhere to restart.").setFontSize(40);
         this.input.on('pointerdown', () => this.scene.start('intro'));
     }
 }
