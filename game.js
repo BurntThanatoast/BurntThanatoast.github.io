@@ -212,14 +212,7 @@ class Demo3 extends AdventureScene {
             })
             .on('pointerdown', () => {
                 this.showMessage("Uh oh.");
-                this.tweens.add({
-                    targets: button,
-                    y: '+=' + this.s,
-                    repeat: 2,
-                    yoyo: true,
-                    ease: 'Sine.inOut',
-                    duration: 100
-                });
+                this.push(button);
                 this.gotoScene('outro2');
             });
         
@@ -260,6 +253,7 @@ class Demo4 extends AdventureScene {
             })
             .on('pointerdown', () => {
                 if (this.hasItem("2 dollar bill")) {
+                    this.loseItem("2 dollar bill");
                     this.showMessage("Here are your Disneyland Tickets.");
                     this.gainItem('Disneyland Tickets');
                     this.gotoScene('outro');
@@ -308,8 +302,7 @@ getting terrible knick knacks for expensive prices.  At the end of the
 day you get an email saying you got a 100% on your homework.
 Life is good.`
                             ).setFontSize(30);
-        this.add.text(50, 100, "Click anywhere to restart.").setFontSize(40);
-        this.clearInventory();
+        this.add.text(10, 170, "Click anywhere to restart.").setFontSize(40);
         this.input.on('pointerdown', () => this.scene.start('intro'));
     }
 }
@@ -327,7 +320,6 @@ dream?  Regardless you wake up to find that you didn't turn in
 your homework on time.  Damn, this shit sucks.`
                             ).setFontSize(30);
         this.add.text(10, 170, "Click anywhere to restart.").setFontSize(40);
-        this.clearInventory();
         this.input.on('pointerdown', () => this.scene.start('intro'));
     }
 }

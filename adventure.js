@@ -137,22 +137,15 @@ class AdventureScene extends Phaser.Scene {
         });
     }
 
-    clearInventory() {
-        if (this.hasItem('Torch')) {
-            this.loseItem('Torch');
-        }
-        if (this.hasItem('Whopper')) {
-            this.loseItem('Whopper');
-        }
-        if (this.hasItem('Lit Torch')) {
-            this.loseItem('Lit Torch');
-        }
-        if (this.hasItem('2 Dollar Bill')) {
-            this.loseItem('2 Dollar Bill');
-        }
-        if (this.hasItem('Disneyland Tickets')) {
-            this.loseItem('Disneyland Tickets');
-        }
+    push(image) {
+        this.tweens.add({
+            targets: image,
+            y: '+=' + this.s,
+            repeat: 2,
+            yoyo: true,
+            ease: 'Sine.inOut',
+            duration: 100
+        });
     }
 
     shake(image) {
