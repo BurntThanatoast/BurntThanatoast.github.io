@@ -45,8 +45,8 @@ class Example extends Phaser.Scene
         //this.load.image('fuji', 'assets/sprites/fuji.png');
         this.load.image('block', 'assets/plinkoball.png');
         this.load.image('peg', 'assets/pegs.png');
-        this.load.image('win', 'assets/win1.png');
-        this.load.image('lose', 'assets/lose1.png');
+        this.load.image('win', 'assets/Win1.png');
+        this.load.image('lose', 'assets/Lose1.png');
         this.load.image('divide', 'assets/divider.png');
         this.load.image('arrow', 'assets/arrow.png');
         this.load.image('wall', 'assets/wall.png');
