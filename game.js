@@ -105,9 +105,9 @@ class Example extends Phaser.Scene
 
         let divider = this.matter.add.image(300, 450, 'divide', null, { isStatic: true});
 
-        this.win = this.matter.add.image(150, 475, 'win', null, { isStatic: true});
+        this.matter.add.image(150, 475, 'win', null, { isStatic: true});
 
-        let lose = this.matter.add.image(450, 475, 'lose', null, { isStatic: true});
+        this.matter.add.image(450, 475, 'lose', null, { isStatic: true});
 
         this.matter.add.image(0, 250, 'wall', null, { isStatic: true});
 
@@ -201,8 +201,8 @@ class Example2 extends Phaser.Scene
         //this.load.image('fuji', 'assets/sprites/fuji.png');
         this.load.image('block', 'assets/plinkoball.png');
         this.load.image('peg', 'assets/pegs.png');
-        this.load.image('win', 'assets/win1.png');
-        this.load.image('lose', 'assets/lose1.png');
+        this.load.image('win', 'assets/Win1.png');
+        this.load.image('lose', 'assets/Lose1.png');
         this.load.image('divide2', 'assets/divider2.png');
         this.load.image('arrow', 'assets/arrow.png');
         this.load.image('wall', 'assets/wall.png');
@@ -366,11 +366,11 @@ class Example2 extends Phaser.Scene
 
         this.matter.add.image(450, 525, 'divide2', null, { isStatic: true});
 
-        this.win = this.matter.add.image(50, 475, 'win', null, { isStatic: true});
+        this.matter.add.image(50, 475, 'win', null, { isStatic: true});
 
         this.matter.add.image(380, 475, 'win', null, { isStatic: true});
 
-        let lose = this.matter.add.image(220, 475, 'lose', null, { isStatic: true});
+        this.matter.add.image(220, 475, 'lose', null, { isStatic: true});
 
         this.matter.add.image(550, 475, 'lose', null, { isStatic: true});
 
@@ -469,8 +469,8 @@ class Example3 extends Phaser.Scene
         //this.load.image('fuji', 'assets/sprites/fuji.png');
         this.load.image('block', 'assets/plinkoball.png');
         this.load.image('peg', 'assets/pegs.png');
-        this.load.image('win', 'assets/win1.png');
-        this.load.image('lose', 'assets/lose1.png');
+        this.load.image('win', 'assets/Win1.png');
+        this.load.image('lose', 'assets/Lose1.png');
         this.load.image('divide2', 'assets/divider2.png');
         this.load.image('arrow', 'assets/arrow.png');
         this.load.image('wall', 'assets/wall.png');
