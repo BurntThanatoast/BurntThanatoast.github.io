@@ -211,7 +211,7 @@ class Gameplay extends Phaser.Scene
         )
         let end1 = this.add.image(960, 600, 'end1')
         end1.setInteractive()
-        end1.on('pointerdown', () => this.scene.start('options'));
+        end1.on('pointerdown', () => this.scene.start('Ending1'));
 
         let end2 = this.add.image(
             960,//x
@@ -219,7 +219,7 @@ class Gameplay extends Phaser.Scene
             'end2',//imagename
         )
         end2.setInteractive()
-        end2.on('pointerdown', () => this.scene.start('gameplay'));
+        end2.on('pointerdown', () => this.scene.start('Ending2'));
     }
 }
 
@@ -234,7 +234,7 @@ class Credits extends Phaser.Scene
         this.load.path = './assets/';
         this.load.image('back', 'back.png');
         this.load.image('options', 'Options.png');
-        this.load.image('credits', 'credits.png')
+        this.load.image('credit', 'credits.png')
 
     }
 
@@ -242,16 +242,58 @@ class Credits extends Phaser.Scene
     {
         let options = this.imageObject = this.add.image(
             960,//x
-            500,
-            'credits',//imagename
+            600,
+            'credit',//imagename
         )
         let back = this.imageObject = this.add.image(
-            960,
-            500,
+            900,
+            400,
             'back',
         )
         back.setInteractive()
         back.on('pointerdown', () => this.scene.start('menu'));
+    }
+}
+
+class End1 extends Phaser.Scene
+{
+    constructor ()
+    {
+        super({ key: 'Ending1' });
+    }
+
+    preload (){
+        this.load.path = './assets/';
+        this.load.image('end2', 'end2.png');
+        this.load.image('end1', 'end1.png');
+        this.load.image('gameplay', 'gameplayplaceholder.png')
+
+    }
+
+    create ()
+    {
+        let end1 = this.add.image(960, 500, 'end1')
+    }
+}
+
+class End2 extends Phaser.Scene
+{
+    constructor ()
+    {
+        super({ key: 'Ending2' });
+    }
+
+    preload (){
+        this.load.path = './assets/';
+        this.load.image('end2', 'end2.png');
+        this.load.image('end1', 'end1.png');
+        this.load.image('gameplay', 'gameplayplaceholder.png')
+
+    }
+
+    create ()
+    {
+        let end2 = this.add.image(960, 500, 'end2')
     }
 }
 
@@ -261,7 +303,7 @@ const config = {
     height: 1080,
     backgroundColor: '#16161D',
     parent: 'phaser-example',
-    scene: [Studio, MainMenu, Options, Gameplay, Credits]
+    scene: [Studio, MainMenu, Options, Gameplay, Credits, End1, End2]
 };
 
 const game = new Phaser.Game(config);
