@@ -1,22 +1,13 @@
-A simple adventure game by {who?} based on a simple adventure game engine by [Adam Smith](https://github.com/rndmcnlly).
+Cinematics prototype
 
-Code requirements:
-- **4+ scenes based on `AdventureScene`**: Demo1, Demo2, Demo3, Demo4
-- **2+ scenes *not* based on `AdventureScene`**: Outro, Outro2
-- **2+ methods or other enhancement added to the adventure game engine to simplify my scenes**:
-    - Enhancement 1: push- makes image go up then down.
-    - Enhancement 2: shake- shakes an image back and forth.
+Non-interactive cinematic: Your prototype should contain a visually-rich prototype for at least one non-interactive scene. This might be one showing a logo for your imaginary game studio, introducing your game's main setting and/or characters, or even presenting the game's downloading progress in a visually enticing way. This scene should have, at minimum a descernable beginning, middle, and end. For example, the beginning might fade in a logo, the middle might add a visual sparkle and play an iconic sound effect, and the end might fade the logo out.
 
-Experience requirements:
-- **4+ locations in the game world**: Demo1(Dark Room), Demo2(Campfire Room), Demo3(Button Room), Demo4(Vending Machine Room)
-- **2+ interactive objects in most scenes**: Every room has a door and at least one thing.  Like first room with torch, door, and hiddent whopper.  Campfire room has campfire, two doors, and a dude.
-- **Many objects have `pointerover` messages**: Doors all have descriptions where they go when pointer over.  Button has Do Not Press when pointer over.
-- **Many objects have `pointerdown` effects**: Doors open and lead to next room when pointer down.  Torch gets picked up on pointer down.
-- **Some objects are themselves animated**: Button shakes up and down when it is pushed.  Doors all open with animation and sound effect.
+Created a logo for our fake game studio where it fades in and fades out after a certain amount of timing and brings you to the main menu.
 
-Asset sources:
-- Campfire found online from minecraft[Campfire](https://minecraft.fandom.com/wiki/Campfire) Door found online from minecraft.[Door](https://minecraft.fandom.com/el/wiki/Door) Open Door found online from minecraft.[OpenDoor](https://minecraft-max.net/craft/doors/17775-oak-door/)  Man found online stock photo[Man](https://www.pngall.com/adult-man-png/download/65005)  Red Button found online[Button](https://www.vecteezy.com/png/8478197-red-button-isolate-backbround-3d-render)  Torch found online from minecraft[Torch](https://minecraft.fandom.com/wiki/Torch) Vending Machine found online as a stock photo[VendingMachine](https://www.uselectit.com/products/ambient-snack/mercato-4000/)  Whopper found online as a stock photo[Whopper](http://www.stickpng.com/img/food/hamburgers/burger-king-whopper)
+Interactive cinematic: Your prototype should contain a visually-rich prototype for at least one interactive scene. This might be your game's main title or menu screen (with buttons to select), or maybe a scene that introduces the main character by having them walk onto the screen (leaving the player in control of the character at the end). The scene should feel visually alive even when the player is not touching it, and it should feel responsive when they do touch it. Perhaps visual elements slide in only when needed, fade in incrementally to build up to a complex result, or are dynamically tinted in ways that provide the user with feedback on their actions (e.g. the button is darkened when the user has pressed it down but not released it yet).
 
-Code sources:
-- `adventure.js` and `index.html` were created for this project [Adam Smith](https://github.com/rndmcnlly) and edited by me.
-- `game.js` was sketched by [Adam Smith](https://github.com/rndmcnlly) and rewritten by me.
+Created a main menu with interactable buttons.  Also made it so that the main menu has a "glitch" effect with the usage of the fade in and fading out tween in phaser.
+
+Choreography in code: The source code implementing at least one of your cinematics must be based on tween chains, timelines, or chained event callbacks, or your engine's equivalent of these Phaser features (rather than many separate animations that were hand-timed to match one another). Although you are encouraged to explore using dedicated cinematic authoring tools (e.g. Adobe Premier or Blender), at least one of your cinematics must be build from hand-typed textual code.1+ object motion animation: (1) Polygon structure interactive in the start screen
+
+The tween chain is in the studio thing where the fade in and fade out.  
